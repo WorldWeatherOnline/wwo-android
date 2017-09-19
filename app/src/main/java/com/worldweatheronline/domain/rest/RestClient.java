@@ -19,7 +19,7 @@ public class RestClient {
   public RestClient() {
   }
 
-  public ApiService getApiService() {
+  public ApiService apiService() {
     HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
 // set your desired log level
     logging.setLevel(HttpLoggingInterceptor.Level.BODY);

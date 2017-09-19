@@ -1,9 +1,5 @@
 package com.worldweatheronline.domain.rest;
 
-import com.worldweatheronline.domain.*;
-import com.worldweatheronline.domain.weather.Api;
-import com.worldweatheronline.domain.weather.Weather;
-import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -14,7 +10,7 @@ public interface ApiService {
   //    http://api.worldweatheronline.com/premium/v1/weather.ashx?key=API_KEY&q=London&format=json&includelocation=yes
   @FormUrlEncoded
   @POST("weather.ashx")
-  Call<com.worldweatheronline.domain.weather.Api> weather(@Field("q") String query);
+  Call<com.worldweatheronline.domain.weather.Api> weather(@Field("q") String location);
 
   //  http://api.worldweatheronline.com/premium/v1/marine.ashx?key=API_KEY&q=31.50,-12.50&format=json&includelocation=yes
   @FormUrlEncoded
@@ -47,5 +43,5 @@ public interface ApiService {
   //  http://api.worldweatheronline.com/premium/v1/ski.ashx?key=API_KEY&q=52.233,-90.75&format=json&includelocation=yes
   @FormUrlEncoded
   @POST("ski.ashx")
-  Call<com.worldweatheronline.domain.ski.Api> skiWeather(@Field("q") String userId);
+  Call<com.worldweatheronline.domain.ski.Api> skiWeather(@Field("q") String latLon);
 }

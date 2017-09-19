@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import com.worldweatheronline.domain.rest.RestClient;
-import com.worldweatheronline.domain.timezone.Api;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,15 +18,17 @@ public final class WeatherApiActivity extends Activity {
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    RestClient restClient = new RestClient();
-    restClient.getApiService().timezone("Paris").enqueue(new Callback<Api>() {
-      @Override public void onResponse(Call<Api> call, Response<Api> response) {
-        Log.e("response",response.body().toString());
-      }
+    App.instance().apiService().weather("Paris").enqueue(
+        new Callback<com.worldweatheronline.domain.weather.Api>() {
+          @Override public void onResponse(Call<com.worldweatheronline.domain.weather.Api> call,
+              Response<com.worldweatheronline.domain.weather.Api> response) {
+            Log.e("response", response.body().toString());
+          }
 
-      @Override public void onFailure(Call<Api> call, Throwable t) {
+          @Override
+          public void onFailure(Call<com.worldweatheronline.domain.weather.Api> call, Throwable t) {
 
-      }
-    });
+          }
+        });
   }
 }
