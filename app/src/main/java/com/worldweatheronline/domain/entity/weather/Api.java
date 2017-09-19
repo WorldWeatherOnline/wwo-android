@@ -10,4 +10,7 @@ public class Api {
   @Expose
   public Data data;
 
+  @Override public String toString() {
+    return data.toString();
+  }
 }

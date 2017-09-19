@@ -1,6 +1,8 @@
 
 package com.worldweatheronline.domain.entity.timezone;
 
+import static com.worldweatheronline.domain.entity.Constants.newLineWithTab;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import java.util.List;
@@ -28,16 +30,17 @@ public class NearestArea {
   @SerializedName("weatherUrl")
   @Expose
   public List<WeatherUrl> weatherUrl = null;
+  private int count = 2;
 
   @Override public String toString() {
-    return "\t\nNearestArea{" +
-        "\t\t\nareaName=" + areaName +
-        "\t\t\n, country=" + country +
-        "\t\t\n, region=" + region +
-        "\t\t\n, latitude='" + latitude + '\'' +
-        "\t\t\n, longitude='" + longitude + '\'' +
-        "\t\t\n, population='" + population + '\'' +
-        "\t\t\n, weatherUrl=" + weatherUrl +
-        "\t\n}";
+    return newLineWithTab(count) + "NearestArea{" +
+        newLineWithTab(count + 1) + "areaName=" + areaName +
+        newLineWithTab(count + 1) + "country=" + country + "," +
+        newLineWithTab(count + 1) + "region=" + region + "," +
+        newLineWithTab(count + 1) + "latitude='" + latitude + "\'," +
+        newLineWithTab(count + 1) + "longitude='" + longitude + "\'," +
+        newLineWithTab(count + 1) + "population='" + population + "\'," +
+        newLineWithTab(count + 1) + "weatherUrl=" + weatherUrl + "," +
+        newLineWithTab(count) + "}" + newLineWithTab(count - 1);
   }
 }
