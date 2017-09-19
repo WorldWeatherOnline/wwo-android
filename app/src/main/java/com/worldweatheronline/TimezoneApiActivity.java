@@ -8,7 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,27 +27,32 @@ import retrofit2.Response;
 
 public final class TimezoneApiActivity extends AppCompatActivity {
 
-  @BindView(R.id.timezoneView) TextView timezoneView;
-  @BindView(R.id.nearestAreaView) TextView nearestAreaView;
+  @BindView(R.id.jsonView) TextView jsonView;
+  @BindView(R.id.progressBar) ProgressBar progressBar;
+  @BindView(R.id.scrollView) ScrollView scrollView;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_timezone);
     ButterKnife.bind(this);
-//    fetchTimezone("Paris");
   }
 
   private void fetchTimezone(String location) {
+    scrollView.setVisibility(View.GONE);
+    progressBar.setVisibility(View.VISIBLE);
     App.instance().apiService().timezone(location).enqueue(new Callback<Api>() {
       @Override public void onResponse(Call<Api> call, Response<Api> response) {
         Api timezone = response.body();
         if (timezone != null) {
-          timezoneView.setText(timezone.toString());
+          jsonView.setText(timezone.toString());
         }
+        progressBar.setVisibility(View.GONE);
+        scrollView.setVisibility(View.VISIBLE);
       }
 
       @Override public void onFailure(Call<Api> call, Throwable t) {
-
+        scrollView.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
       }
     });
   }
