@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
-import com.worldweatheronline.domain.timezone.Api;
+import com.worldweatheronline.domain.entity.timezone.Api;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

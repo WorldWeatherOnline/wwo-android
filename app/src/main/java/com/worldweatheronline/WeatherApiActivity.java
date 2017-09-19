@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
+import com.worldweatheronline.domain.entity.weather.Api;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,14 +20,14 @@ public final class WeatherApiActivity extends Activity {
     super.onCreate(savedInstanceState);
 
     App.instance().apiService().weather("Paris").enqueue(
-        new Callback<com.worldweatheronline.domain.weather.Api>() {
-          @Override public void onResponse(Call<com.worldweatheronline.domain.weather.Api> call,
-              Response<com.worldweatheronline.domain.weather.Api> response) {
+        new Callback<Api>() {
+          @Override public void onResponse(Call<Api> call,
+              Response<Api> response) {
             Log.e("response", response.body().toString());
           }
 
           @Override
-          public void onFailure(Call<com.worldweatheronline.domain.weather.Api> call, Throwable t) {
+          public void onFailure(Call<Api> call, Throwable t) {
 
           }
         });
