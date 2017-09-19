@@ -1,9 +1,9 @@
 
 package com.worldweatheronline.domain.entity.timezone;
 
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
 public class NearestArea {
 
@@ -30,14 +30,14 @@ public class NearestArea {
   public List<WeatherUrl> weatherUrl = null;
 
   @Override public String toString() {
-    return "NearestArea{" +
-        "areaName=" + areaName +
-        ", country=" + country +
-        ", region=" + region +
-        ", latitude='" + latitude + '\'' +
-        ", longitude='" + longitude + '\'' +
-        ", population='" + population + '\'' +
-        ", weatherUrl=" + weatherUrl +
-        '}';
+    return "\t\nNearestArea{" +
+        "\t\t\nareaName=" + areaName +
+        "\t\t\n, country=" + country +
+        "\t\t\n, region=" + region +
+        "\t\t\n, latitude='" + latitude + '\'' +
+        "\t\t\n, longitude='" + longitude + '\'' +
+        "\t\t\n, population='" + population + '\'' +
+        "\t\t\n, weatherUrl=" + weatherUrl +
+        "\t\n}";
   }
 }

@@ -14,9 +14,9 @@ public class Request {
     public String query;
 
     @Override public String toString() {
-        return "Request{" +
-            "type='" + type + '\'' +
-            ", query='" + query + '\'' +
-            '}';
+        return "\n\tRequest{" +
+            "\n\t\ttype='" + type + '\'' +
+            "\n\t\t, query='" + query + '\'' +
+            "\n\t}";
     }
 }

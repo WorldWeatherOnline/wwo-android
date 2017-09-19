@@ -6,8 +6,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class AreaName {
 
-    @SerializedName("value")
-    @Expose
-    public String value;
+  @SerializedName("value")
+  @Expose
+  public String value;
 
+  @Override public String toString() {
+    return "\n\tAreaName{" +
+        "\n\t\tvalue='" + value + '\'' +
+        "\n\t}";
+  }
 }

@@ -19,9 +19,9 @@ public class Data {
 
     @Override public String toString() {
         return "Data{" +
-            "request=" + request +
-            ", nearestArea=" + nearestArea +
-            ", timeZone=" + timeZone +
-            '}';
+            "\nrequest=" + request +
+            "\n, nearestArea=" + nearestArea +
+            "\n, timeZone=" + timeZone +
+            "\n}";
     }
 }

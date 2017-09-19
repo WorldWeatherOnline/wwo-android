@@ -11,8 +11,6 @@ public class Api {
   public Data data;
 
   @Override public String toString() {
-    return "Api{" +
-        "data=" + data +
-        '}';
+    return data.toString();
   }
 }

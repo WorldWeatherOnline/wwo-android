@@ -6,8 +6,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class Country {
 
-    @SerializedName("value")
-    @Expose
-    public String value;
+  @SerializedName("value")
+  @Expose
+  public String value;
 
+  @Override public String toString() {
+    return "\n\tCountry{" +
+        "\n\t\tvalue='" + value + '\'' +
+        "\n\t}";
+  }
 }

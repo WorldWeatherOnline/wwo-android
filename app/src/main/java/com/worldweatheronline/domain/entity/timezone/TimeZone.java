@@ -14,9 +14,9 @@ public class TimeZone {
     public String utcOffset;
 
     @Override public String toString() {
-        return "TimeZone{" +
-            "localtime='" + localtime + '\'' +
-            ", utcOffset='" + utcOffset + '\'' +
-            '}';
+        return "\n\tTimeZone{" +
+            "\n\t\tlocaltime='" + localtime + '\'' +
+            "\n\t\t, utcOffset='" + utcOffset + '\'' +
+            "\n\t}";
     }
 }
