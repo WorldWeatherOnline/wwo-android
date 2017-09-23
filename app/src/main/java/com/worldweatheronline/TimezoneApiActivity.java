@@ -35,7 +35,7 @@ public final class TimezoneApiActivity extends AppCompatActivity {
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_timezones);
+    setContentView(R.layout.activity_timezone);
     ButterKnife.bind(this);
   }
 
