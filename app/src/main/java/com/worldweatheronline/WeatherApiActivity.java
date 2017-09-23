@@ -1,19 +1,15 @@
 package com.worldweatheronline;
 
-import android.app.Activity;
 import android.app.SearchManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,19 +25,20 @@ import retrofit2.Response;
 
 public final class WeatherApiActivity extends AppCompatActivity {
 
-  @BindView(R.id.jsonView) TextView jsonView;
+//  @BindView(R.id.jsonView) TextView jsonView;
 
   @BindView(R.id.progressBar) ProgressBar progressBar;
-  @BindView(R.id.scrollView) ScrollView scrollView;
+  @BindView(R.id.currentConditionLayout) CurrentConditionLayout currentConditionLayout;
+  @BindView(R.id.screen) View screenView;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_timezone);
+    setContentView(R.layout.activity_weather);
     ButterKnife.bind(this);
   }
 
   private void fetchTimezone(String location) {
-    scrollView.setVisibility(View.GONE);
+    screenView.setVisibility(View.GONE);
     progressBar.setVisibility(View.VISIBLE);
 
     App.instance().apiService().weather(location)
@@ -49,16 +46,17 @@ public final class WeatherApiActivity extends AppCompatActivity {
           @Override public void onResponse(Call<Api> call, Response<Api> response) {
             com.worldweatheronline.domain.entity.weather.Api weather = response.body();
             if (weather != null) {
-              jsonView.setText(weather.toString());
+//              jsonView.setText(weather.toString());
+              currentConditionLayout.bind(weather.data.currentCondition.get(0));
             }
             progressBar.setVisibility(View.GONE);
-            scrollView.setVisibility(View.VISIBLE);
+            screenView.setVisibility(View.VISIBLE);
           }
 
           @Override
           public void onFailure(Call<com.worldweatheronline.domain.entity.weather.Api> call,
               Throwable t) {
-            scrollView.setVisibility(View.VISIBLE);
+            screenView.setVisibility(View.VISIBLE);
             progressBar.setVisibility(View.GONE);
           }
         });
