@@ -49,11 +49,11 @@ public final class WeatherApiActivity extends AppCompatActivity {
           @Override public void onResponse(Call<Api> call, Response<Api> response) {
             com.worldweatheronline.domain.entity.weather.Api weatherApi = response.body();
             if (weatherApi != null && weatherApi.data != null) {
-              if (!weatherApi.data.currentCondition
+              if (weatherApi.data.currentCondition != null && !weatherApi.data.currentCondition
                   .isEmpty()) {
                 currentConditionLayout.bind(weatherApi.data.currentCondition.get(0));
               }
-              if (!weatherApi.data.weather.isEmpty()) {
+              if (weatherApi.data.weather != null && !weatherApi.data.weather.isEmpty()) {
                 listView.setAdapter(
                     new WeatherAdapter(WeatherApiActivity.this, weatherApi.data.weather));
               }

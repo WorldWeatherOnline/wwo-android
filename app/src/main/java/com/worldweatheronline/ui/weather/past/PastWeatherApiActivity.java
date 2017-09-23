@@ -80,7 +80,8 @@ public final class PastWeatherApiActivity extends AppCompatActivity {
                   Call<com.worldweatheronline.domain.entity.weather.past.Api> call,
                   Response<com.worldweatheronline.domain.entity.weather.past.Api> response) {
                 com.worldweatheronline.domain.entity.weather.past.Api weatherApi = response.body();
-                if (weatherApi != null && weatherApi.data != null) {
+                if (weatherApi != null && weatherApi.data != null
+                    && weatherApi.data.weather != null) {
                   if (!weatherApi.data.weather.isEmpty()) {
                     listView.setAdapter(
                         new PastWeatherAdapter(PastWeatherApiActivity.this,
