@@ -11,7 +11,7 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-    <activity android:name=".ApiListActivity">
+    <activity android:name=".ui.apilist.ApiListActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 
@@ -23,7 +23,7 @@
       android:name=".ui.weather.WeatherApiActivity"/>
     <activity
       android:label="Timezone Api"
-      android:name=".TimezoneApiActivity"/>
+      android:name=".ui.timezone.TimezoneApiActivity"/>
     <activity
       android:label="Past Weather Api"
       android:name=".ui.weather.past.PastWeatherApiActivity"/>

@@ -1,10 +1,12 @@
-package com.worldweatheronline;
+package com.worldweatheronline.ui.apilist;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import com.worldweatheronline.R;
+import com.worldweatheronline.ui.timezone.TimezoneApiActivity;
 import com.worldweatheronline.ui.weather.WeatherApiActivity;
 import com.worldweatheronline.ui.weather.past.PastWeatherApiActivity;
 
