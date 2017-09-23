@@ -34,7 +34,5 @@ dependencies {
 
     compile 'com.github.bumptech.glide:glide:4.1.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
-
-    compile 'com.github.aakira:expandable-layout:1.6.0@aar'
-
+    compile 'com.github.SilenceDut:ExpandableLayout:1.2.0'
 }
