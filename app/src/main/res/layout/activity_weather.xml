@@ -13,7 +13,7 @@
     style="?android:progressBarStyleLarge"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center" />
+    android:layout_gravity="center"/>
 
   <LinearLayout
     android:id="@+id/screen"
@@ -21,47 +21,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <com.silencedut.expandablelayout.ExpandableLayout
       xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
-      app:expWithParentScroll="true"
-      app:expDuration = "300"
-      app:expExpandScrollTogether = "false"
       android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      app:expDuration="300"
+      app:expExpandScrollTogether="true"
+      app:expWithParentScroll="true">
       <include
         android:id="@+id/currentConditionExpandableView"
-        layout="@layout/expandable_label" />
+        layout="@layout/expandable_label"/>
 
       <com.worldweatheronline.CurrentConditionLayout
         android:id="@+id/currentConditionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:orientation="vertical"/>
 
     </com.silencedut.expandablelayout.ExpandableLayout>
-    <!--<com.github.aakira.expandablelayout.ExpandableLinearLayout-->
-      <!--android:id="@+id/expandableLayout"-->
-      <!--android:layout_width="match_parent"-->
-      <!--android:layout_height="wrap_content"-->
-      <!--app:ael_duration="500"-->
-      <!--app:ael_expanded="false"-->
-      <!--app:ael_orientation="vertical">-->
-
- <!---->
-    <!--</com.github.aakira.expandablelayout.ExpandableLinearLayout>-->
-    <TextView
-    android:id="@+id/localTimeView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="8dp" />
-
-    <TextView
-    android:id="@+id/utcOffetView"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:padding="8dp" />
+    <ListView
+      android:id="@+id/listView"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1"/>
   </LinearLayout>
 
 </FrameLayout>

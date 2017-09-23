@@ -1,4 +1,4 @@
-package com.worldweatheronline;
+package com.worldweatheronline.ui.weather;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -9,9 +9,14 @@ import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.worldweatheronline.App;
+import com.worldweatheronline.CurrentConditionLayout;
+import com.worldweatheronline.R;
 import com.worldweatheronline.domain.entity.weather.Api;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,11 +29,10 @@ import retrofit2.Response;
 
 public final class WeatherApiActivity extends AppCompatActivity {
 
-//  @BindView(R.id.jsonView) TextView jsonView;
-
   @BindView(R.id.progressBar) ProgressBar progressBar;
   @BindView(R.id.currentConditionLayout) CurrentConditionLayout currentConditionLayout;
   @BindView(R.id.screen) View screenView;
+  @BindView(R.id.listView) ListView listView;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -43,10 +47,17 @@ public final class WeatherApiActivity extends AppCompatActivity {
     App.instance().apiService().weather(location)
         .enqueue(new Callback<Api>() {
           @Override public void onResponse(Call<Api> call, Response<Api> response) {
-            com.worldweatheronline.domain.entity.weather.Api weather = response.body();
-            if (weather != null) {
-//              jsonView.setText(weather.toString());
-              currentConditionLayout.bind(weather.data.currentCondition.get(0));
+            com.worldweatheronline.domain.entity.weather.Api weatherApi = response.body();
+            if (weatherApi != null && weatherApi.data != null) {
+              if (!weatherApi.data.currentCondition
+                  .isEmpty()) {
+                currentConditionLayout.bind(weatherApi.data.currentCondition.get(0));
+              }
+              if (!weatherApi.data.weather.isEmpty()) {
+                listView.setAdapter(
+                    new WeatherAdapter(WeatherApiActivity.this, weatherApi.data.weather));
+              }
+
             }
             progressBar.setVisibility(View.GONE);
             screenView.setVisibility(View.VISIBLE);

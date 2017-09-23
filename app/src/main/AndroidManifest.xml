@@ -20,7 +20,7 @@
     </activity>
     <activity
       android:label="Weather Api"
-      android:name=".WeatherApiActivity" />
+      android:name=".ui.weather.WeatherApiActivity" />
     <activity
       android:label="Timezone Api"
       android:name=".TimezoneApiActivity" />
