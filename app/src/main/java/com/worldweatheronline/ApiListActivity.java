@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import com.worldweatheronline.ui.weather.WeatherApiActivity;
+import com.worldweatheronline.ui.weather.past.PastWeatherApiActivity;
 
 public final class ApiListActivity extends AppCompatActivity {
 
@@ -16,6 +17,11 @@ public final class ApiListActivity extends AppCompatActivity {
     findViewById(R.id.weatherButton).setOnClickListener(new OnClickListener() {
       @Override public void onClick(View view) {
         startActivity(new Intent(ApiListActivity.this, WeatherApiActivity.class));
+      }
+    });
+    findViewById(R.id.weatherPastButton).setOnClickListener(new OnClickListener() {
+      @Override public void onClick(View view) {
+        startActivity(new Intent(ApiListActivity.this, PastWeatherApiActivity.class));
       }
     });
     findViewById(R.id.timezoneButton).setOnClickListener(new OnClickListener() {
