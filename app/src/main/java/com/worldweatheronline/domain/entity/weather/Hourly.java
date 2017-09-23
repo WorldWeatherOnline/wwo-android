@@ -1,8 +1,6 @@
 
 package com.worldweatheronline.domain.entity.weather;
 
-import static com.worldweatheronline.domain.entity.Constants.NEW_LINE;
-import static com.worldweatheronline.domain.entity.Constants.TAB;
 import static com.worldweatheronline.domain.entity.Constants.newLineWithTab;
 
 import java.util.List;
@@ -37,10 +35,10 @@ public class Hourly {
   public String weatherCode;
   @SerializedName("weatherIconUrl")
   @Expose
-  public List<WeatherIconUrl_> weatherIconUrl = null;
+  public List<WeatherIconUrlValue> weatherIconUrl = null;
   @SerializedName("weatherDesc")
   @Expose
-  public List<WeatherDesc_> weatherDesc = null;
+  public List<WeatherDescValue> weatherDesc = null;
   @SerializedName("precipMM")
   @Expose
   public String precipMM;

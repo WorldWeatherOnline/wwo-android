@@ -8,7 +8,7 @@ import static com.worldweatheronline.domain.entity.Constants.newLineWithTab;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class WeatherDesc_ {
+public class WeatherDescValue {
 
   @SerializedName("value")
   @Expose
@@ -17,7 +17,7 @@ public class WeatherDesc_ {
   private static int count = 8;
 
   @Override public String toString() {
-    return newLineWithTab(count) + "WeatherDesc_{" +
+    return newLineWithTab(count) + "WeatherDescValue{" +
         newLineWithTab(count + 2) + "value='" + value + "'," +
         newLineWithTab(count + 1) + "}" + newLineWithTab(count-1);
   }
