@@ -27,6 +27,10 @@
     <activity
       android:label="Past Weather Api"
       android:name=".ui.weather.past.PastWeatherApiActivity"/>
+    <activity
+      android:label="Marine Api"
+      android:name=".ui.marine.MarineApiActivity"/>
+
   </application>
 
 </manifest>
