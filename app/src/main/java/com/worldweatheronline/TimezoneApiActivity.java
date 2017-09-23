@@ -11,11 +11,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.worldweatheronline.domain.entity.timezone.Api;
+import com.worldweatheronline.domain.entity.timezone.TimeZone;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,31 +27,39 @@ import retrofit2.Response;
 
 public final class TimezoneApiActivity extends AppCompatActivity {
 
-  @BindView(R.id.jsonView) TextView jsonView;
+  @BindView(R.id.nearestAreaLayout) NearestAreaLayout nearestAreaLayout;
+  @BindView(R.id.localTimeView) TextView localTimeView;
+  @BindView(R.id.utcOffetView) TextView utcOffsetView;
   @BindView(R.id.progressBar) ProgressBar progressBar;
-  @BindView(R.id.scrollView) ScrollView scrollView;
+  @BindView(R.id.screen) View screenView;
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_timezone);
+    setContentView(R.layout.activity_timezones);
     ButterKnife.bind(this);
   }
 
   private void fetchTimezone(String location) {
-    scrollView.setVisibility(View.GONE);
+    screenView.setVisibility(View.GONE);
     progressBar.setVisibility(View.VISIBLE);
     App.instance().apiService().timezone(location).enqueue(new Callback<Api>() {
       @Override public void onResponse(Call<Api> call, Response<Api> response) {
-        Api timezone = response.body();
-        if (timezone != null) {
-          jsonView.setText(timezone.toString());
+        Api body = response.body();
+        if (body != null && body.data != null && !body.data.timeZone.isEmpty()
+            && !body.data.nearestArea.isEmpty()) {
+          TimeZone timezone = body.data.timeZone.get(0);
+          if (timezone != null) {
+            localTimeView.setText("Local time is " + timezone.localtime);
+            utcOffsetView.setText("Utc Offset is " + timezone.utcOffset);
+            nearestAreaLayout.bind(body.data.nearestArea.get(0));
+          }
         }
         progressBar.setVisibility(View.GONE);
-        scrollView.setVisibility(View.VISIBLE);
+        screenView.setVisibility(View.VISIBLE);
       }
 
       @Override public void onFailure(Call<Api> call, Throwable t) {
-        scrollView.setVisibility(View.VISIBLE);
+        screenView.setVisibility(View.VISIBLE);
         progressBar.setVisibility(View.GONE);
       }
     });
