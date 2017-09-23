@@ -1,5 +1,7 @@
 package com.worldweatheronline;
 
+import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Context;
 import android.media.Image;
 import android.os.Build.VERSION_CODES;
@@ -11,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import com.bumptech.glide.Glide;
 import com.worldweatheronline.domain.entity.timezone.AreaName;
 import com.worldweatheronline.domain.entity.timezone.Country;
@@ -92,8 +95,15 @@ public final class CurrentConditionLayout extends LinearLayout {
     }
   }
 
+  int height;
+
   @Override protected void onFinishInflate() {
     super.onFinishInflate();
     ButterKnife.bind(this);
+    post(new Runnable() {
+      @Override public void run() {
+        height = getHeight();
+      }
+    });
   }
 }

@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+import com.github.aakira.expandablelayout.ExpandableLinearLayout;
 import com.worldweatheronline.domain.entity.weather.Api;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,6 +32,12 @@ public final class WeatherApiActivity extends AppCompatActivity {
   @BindView(R.id.progressBar) ProgressBar progressBar;
   @BindView(R.id.currentConditionLayout) CurrentConditionLayout currentConditionLayout;
   @BindView(R.id.screen) View screenView;
+  @BindView(R.id.expandableLayout) ExpandableLinearLayout expandableLinearLayout;
+
+  @OnClick(R.id.currentConditionExpandableView)
+  void onClick() {
+    expandableLinearLayout.toggle();
+  }
 
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

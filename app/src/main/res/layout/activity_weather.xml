@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:paddingTop="@dimen/activity_vertical_margin"
@@ -19,24 +20,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <TextView
-      android:id="@+id/localTimeView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:padding="8dp" />
 
-    <TextView
-      android:id="@+id/utcOffetView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:padding="8dp" />
-    <com.worldweatheronline.CurrentConditionLayout
-      android:id="@+id/currentConditionLayout"
+    <include
+      android:id="@+id/currentConditionExpandableView"
+      layout="@layout/expandable_label" />
+    <com.github.aakira.expandablelayout.ExpandableLinearLayout
+      android:id="@+id/expandableLayout"
       android:layout_width="match_parent"
-      android:orientation="vertical"
-      android:layout_height="wrap_content" />
+      android:layout_height="wrap_content"
+      app:ael_duration="500"
+      app:ael_expanded="false"
+      app:ael_orientation="vertical">
 
+      <com.worldweatheronline.CurrentConditionLayout
+        android:id="@+id/currentConditionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
 
+    </com.github.aakira.expandablelayout.ExpandableLinearLayout>
+    <TextView
+    android:id="@+id/localTimeView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp" />
+
+    <TextView
+    android:id="@+id/utcOffetView"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp" />
   </LinearLayout>
 
 </FrameLayout>
