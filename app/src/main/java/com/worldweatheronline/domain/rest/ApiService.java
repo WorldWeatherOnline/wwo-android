@@ -4,7 +4,10 @@ import com.worldweatheronline.domain.entity.weather.past.Api;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -42,7 +45,6 @@ public interface ApiService {
   );
 
   //  http://api.worldweatheronline.com/premium/v1/ski.ashx?key=API_KEY&q=52.233,-90.75&format=json&includelocation=yes
-  @FormUrlEncoded
-  @POST("ski.ashx")
-  Call<com.worldweatheronline.domain.entity.ski.Api> skiWeather(@Field("q") String latLon);
+  @GET("ski.ashx")
+  Call<com.worldweatheronline.domain.entity.ski.Api> skiWeather(@Query("q") String latLon);
 }

@@ -33,6 +33,9 @@
     <activity
       android:label="Marine Past Api"
       android:name=".ui.marine.past.PastMarineApiActivity"/>
+    <activity
+      android:label="Ski Weather Api"
+      android:name=".ui.ski.SkiApiActivity"/>
 
   </application>
 
