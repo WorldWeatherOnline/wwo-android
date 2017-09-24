@@ -40,14 +40,26 @@ public final class PastMarineAdapter extends
       holder = (ViewHolder) convertView.getTag();
     }
     com.worldweatheronline.domain.entity.marine.past.Weather weather = getItem(position);
-    holder.tempView.setText(String
-        .format("Min Temp: %s - %s C", weather.mintempC, weather.maxtempC));
+    holder.tempView.setText(
+        String.format("Temprature : %s - %s C (%s - %s F)",
+            weather.mintempC,
+            weather.maxtempC,
+            weather.mintempF,
+            weather.maxtempF)
+    );
     holder.dateView.setText(weather.date);
     com.worldweatheronline.domain.entity.marine.past.Astronomy astronomy = weather.astronomy.get(0);
     if (!weather.astronomy.isEmpty()) {
-      holder.sunView
-          .setText(String.format("Sunrise at %s & Sunset at %s", astronomy.sunrise,
-              astronomy.sunset));
+      holder.sunView.setText(
+          String.format("Sunrise at %s & Sunset at %s",
+              astronomy.sunrise,
+              astronomy.sunset)
+      );
+      holder.moonView.setText(
+          String.format("Moonrise at %s & Moonset at %s",
+              astronomy.sunrise,
+              astronomy.sunset)
+      );
     }
     return convertView;
   }
@@ -57,6 +69,7 @@ public final class PastMarineAdapter extends
     @BindView(R.id.tempView) TextView tempView;
     @BindView(R.id.dateView) TextView dateView;
     @BindView(R.id.sunView) TextView sunView;
+    @BindView(R.id.moonView) TextView moonView;
     @BindView(R.id.uvIndexView) TextView uvIndexView;
 
     ViewHolder(View view) {

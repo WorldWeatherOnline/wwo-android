@@ -11,8 +11,6 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.worldweatheronline.R;
-import com.worldweatheronline.domain.entity.weather.Astronomy;
-import com.worldweatheronline.domain.entity.weather.Weather;
 import java.util.List;
 
 /**
@@ -20,7 +18,8 @@ import java.util.List;
  * @date 23 Sep,2017 18:16
  */
 
-public final class MarineAdapter extends ArrayAdapter<com.worldweatheronline.domain.entity.marine.Weather> {
+public final class MarineAdapter extends
+    ArrayAdapter<com.worldweatheronline.domain.entity.marine.Weather> {
 
   public MarineAdapter(@NonNull Context context,
       @NonNull List<com.worldweatheronline.domain.entity.marine.Weather> objects) {
@@ -34,20 +33,32 @@ public final class MarineAdapter extends ArrayAdapter<com.worldweatheronline.dom
       convertView = LayoutInflater.from(parent.getContext())
           .inflate(R.layout.item_weather, null, false);
       holder = new ViewHolder(convertView);
-      ((View)holder.uvIndexView.getParent()).setVisibility(View.GONE);
+      ((View) holder.uvIndexView.getParent()).setVisibility(View.GONE);
       convertView.setTag(holder);
     } else {
       holder = (ViewHolder) convertView.getTag();
     }
     com.worldweatheronline.domain.entity.marine.Weather weather = getItem(position);
-    holder.tempView.setText(String
-        .format("Min Temp: %s - %s C", weather.mintempC, weather.maxtempC));
+    holder.tempView.setText(
+        String.format("Temprature : %s - %s C (%s - %s F)",
+            weather.mintempC,
+            weather.maxtempC,
+            weather.mintempF,
+            weather.maxtempF)
+    );
     holder.dateView.setText(weather.date);
     com.worldweatheronline.domain.entity.marine.Astronomy astronomy = weather.astronomy.get(0);
     if (!weather.astronomy.isEmpty()) {
-      holder.sunView
-          .setText(String.format("Sunrise at %s & Sunset at %s", astronomy.sunrise,
-              astronomy.sunset));
+      holder.sunView.setText(
+          String.format("Sunrise at %s & Sunset at %s",
+              astronomy.sunrise,
+              astronomy.sunset)
+      );
+      holder.moonView.setText(
+          String.format("Moonrise at %s & Moonset at %s",
+              astronomy.sunrise,
+              astronomy.sunset)
+      );
     }
     return convertView;
   }
@@ -57,6 +68,7 @@ public final class MarineAdapter extends ArrayAdapter<com.worldweatheronline.dom
     @BindView(R.id.tempView) TextView tempView;
     @BindView(R.id.dateView) TextView dateView;
     @BindView(R.id.sunView) TextView sunView;
+    @BindView(R.id.moonView) TextView moonView;
     @BindView(R.id.uvIndexView) TextView uvIndexView;
     @BindView(R.id.sunHourView) TextView sunHourView;
 
