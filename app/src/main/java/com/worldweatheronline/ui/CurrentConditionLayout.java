@@ -1,4 +1,4 @@
-package com.worldweatheronline;
+package com.worldweatheronline.ui;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.bumptech.glide.Glide;
+import com.worldweatheronline.R;
 import com.worldweatheronline.domain.entity.timezone.AreaName;
 import com.worldweatheronline.domain.entity.timezone.Country;
 import com.worldweatheronline.domain.entity.timezone.Region;

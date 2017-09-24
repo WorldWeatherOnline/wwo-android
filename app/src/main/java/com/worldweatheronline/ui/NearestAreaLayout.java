@@ -1,4 +1,4 @@
-package com.worldweatheronline;
+package com.worldweatheronline.ui;
 
 import android.content.Context;
 import android.os.Build.VERSION_CODES;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.bumptech.glide.Glide;
+import com.worldweatheronline.R;
 import com.worldweatheronline.domain.entity.timezone.AreaName;
 import com.worldweatheronline.domain.entity.timezone.Country;
 import com.worldweatheronline.domain.entity.timezone.NearestArea;

@@ -33,7 +33,7 @@
         android:id="@+id/currentConditionExpandableView"
         layout="@layout/expandable_label"/>
 
-      <com.worldweatheronline.CurrentConditionLayout
+      <com.worldweatheronline.ui.CurrentConditionLayout
         android:id="@+id/currentConditionLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.worldweatheronline.App;
-import com.worldweatheronline.NearestAreaLayout;
+import com.worldweatheronline.ui.NearestAreaLayout;
 import com.worldweatheronline.R;
 import com.worldweatheronline.domain.entity.timezone.Api;
 import com.worldweatheronline.domain.entity.timezone.TimeZone;
