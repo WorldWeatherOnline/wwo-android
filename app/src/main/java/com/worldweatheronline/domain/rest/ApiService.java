@@ -34,7 +34,7 @@ public interface ApiService {
 
   //  http://api.worldweatheronline.com/premium/v1/past-marine.ashx?key=API_KEY&q=31.50,-12.50&format=json&includelocation=yes&date=2017-08-15&enddate=2017-09-10
   @FormUrlEncoded
-  @POST("send_request_to_driver.php")
+  @POST("past-marine.ashx")
   Call<com.worldweatheronline.domain.entity.marine.past.Api> pastMarineWeather(
       @Field("q") String latLon,
       @Field("date") String startDate,

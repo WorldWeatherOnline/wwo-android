@@ -30,6 +30,9 @@
     <activity
       android:label="Marine Api"
       android:name=".ui.marine.MarineApiActivity"/>
+    <activity
+      android:label="Marine Past Api"
+      android:name=".ui.marine.past.PastMarineApiActivity"/>
 
   </application>
 

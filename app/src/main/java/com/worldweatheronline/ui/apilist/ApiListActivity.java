@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import com.worldweatheronline.R;
 import com.worldweatheronline.ui.marine.MarineApiActivity;
+import com.worldweatheronline.ui.marine.past.PastMarineApiActivity;
 import com.worldweatheronline.ui.timezone.TimezoneApiActivity;
 import com.worldweatheronline.ui.weather.WeatherApiActivity;
 import com.worldweatheronline.ui.weather.past.PastWeatherApiActivity;
@@ -30,6 +31,11 @@ public final class ApiListActivity extends AppCompatActivity {
     findViewById(R.id.marineButton).setOnClickListener(new OnClickListener() {
       @Override public void onClick(View view) {
         startActivity(new Intent(ApiListActivity.this, MarineApiActivity.class));
+      }
+    });
+    findViewById(R.id.marinePastButton).setOnClickListener(new OnClickListener() {
+      @Override public void onClick(View view) {
+        startActivity(new Intent(ApiListActivity.this, PastMarineApiActivity.class));
       }
     });
     findViewById(R.id.timezoneButton).setOnClickListener(new OnClickListener() {
