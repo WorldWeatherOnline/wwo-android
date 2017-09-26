@@ -15,10 +15,10 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.worldweatheronline.App;
-import com.worldweatheronline.ui.NearestAreaLayout;
 import com.worldweatheronline.R;
 import com.worldweatheronline.domain.entity.timezone.Api;
 import com.worldweatheronline.domain.entity.timezone.TimeZone;
+import com.worldweatheronline.ui.NearestAreaLayout;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -101,4 +101,13 @@ public final class TimezoneApiActivity extends AppCompatActivity {
     return true;
   }
 
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        onBackPressed();
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
+  }
 }

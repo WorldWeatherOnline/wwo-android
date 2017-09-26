@@ -14,9 +14,9 @@ import android.widget.ProgressBar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.worldweatheronline.App;
-import com.worldweatheronline.ui.CurrentConditionLayout;
 import com.worldweatheronline.R;
 import com.worldweatheronline.domain.entity.weather.Api;
+import com.worldweatheronline.ui.CurrentConditionLayout;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -95,5 +95,15 @@ public final class WeatherApiActivity extends AppCompatActivity {
     searchView.setQuery("Paris", true);
     searchView.setQueryHint("Search by city");
     return true;
+  }
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        onBackPressed();
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
   }
 }

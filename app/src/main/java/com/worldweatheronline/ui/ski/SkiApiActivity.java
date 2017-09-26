@@ -1,12 +1,8 @@
 package com.worldweatheronline.ui.ski;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -42,6 +38,7 @@ public final class SkiApiActivity extends AppCompatActivity {
       Toast.makeText(this, "Pleaes enter the latitude, longitude!", Toast.LENGTH_LONG).show();
     }
   }
+
   @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_marine);
@@ -80,5 +77,15 @@ public final class SkiApiActivity extends AppCompatActivity {
               }
             }
         );
+  }
+
+  @Override public boolean onOptionsItemSelected(MenuItem item) {
+    switch (item.getItemId()) {
+      case android.R.id.home:
+        onBackPressed();
+        return true;
+      default:
+        return super.onOptionsItemSelected(item);
+    }
   }
 }
