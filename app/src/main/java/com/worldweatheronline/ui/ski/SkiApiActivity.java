@@ -46,6 +46,7 @@ public final class SkiApiActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_marine);
     ButterKnife.bind(this);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   }
 
   private void fetchSki(String location) {
@@ -79,30 +80,5 @@ public final class SkiApiActivity extends AppCompatActivity {
               }
             }
         );
-  }
-
-  @Override public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R.menu.menu, menu);
-    final MenuItem item = menu.findItem(R.id.action_search);
-
-    SearchManager searchManager =
-        (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-    SearchView searchView =
-        (SearchView) item.getActionView();
-    searchView.setSearchableInfo(
-        searchManager.getSearchableInfo(getComponentName()));
-    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-      @Override public boolean onQueryTextSubmit(String query) {
-        fetchSki(query);
-        return true;
-      }
-
-      @Override public boolean onQueryTextChange(String newText) {
-        return false;
-      }
-    });
-    searchView.setQuery("Paris", true);
-    searchView.setQueryHint("Search by city");
-    return true;
   }
 }

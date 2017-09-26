@@ -40,6 +40,7 @@ public final class TimezoneApiActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_timezone);
     ButterKnife.bind(this);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   }
 
   private void fetchTimezone(String location) {

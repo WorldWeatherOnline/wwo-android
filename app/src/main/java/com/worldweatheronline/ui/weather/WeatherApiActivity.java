@@ -37,6 +37,7 @@ public final class WeatherApiActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_weather);
     ButterKnife.bind(this);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
   }
 
   private void fetchTimezone(String location) {
