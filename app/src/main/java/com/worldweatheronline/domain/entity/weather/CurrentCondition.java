@@ -1,13 +1,9 @@
 
 package com.worldweatheronline.domain.entity.weather;
 
-import static com.worldweatheronline.domain.entity.Constants.NEW_LINE;
-import static com.worldweatheronline.domain.entity.Constants.TAB;
-import static com.worldweatheronline.domain.entity.Constants.newLineWithTab;
-
-import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import java.util.List;
 
 public class CurrentCondition {
 
@@ -62,28 +58,4 @@ public class CurrentCondition {
   @SerializedName("FeelsLikeF")
   @Expose
   public String feelsLikeF;
-
-  private static int count = 2;
-
-  @Override public String toString() {
-    return newLineWithTab(count) + "CurrentCondition{" +
-        newLineWithTab(count + 2) + "observationTime='" + observationTime + "'," +
-        newLineWithTab(count + 2) + "tempC='" + tempC + "'," +
-        newLineWithTab(count + 2) + "tempF='" + tempF + "'," +
-        newLineWithTab(count + 2) + "weatherCode='" + weatherCode + "'," +
-        newLineWithTab(count + 2) + "weatherIconUrl=" + weatherIconUrl +
-        newLineWithTab(count + 2) + "weatherDesc=" + weatherDesc +
-        newLineWithTab(count + 2) + "windspeedMiles='" + windspeedMiles + "'," +
-        newLineWithTab(count + 2) + "windspeedKmph='" + windspeedKmph + "'," +
-        newLineWithTab(count + 2) + "winddirDegree='" + winddirDegree + "'," +
-        newLineWithTab(count + 2) + "winddir16Point='" + winddir16Point + "'," +
-        newLineWithTab(count + 2) + "precipMM='" + precipMM + "'," +
-        newLineWithTab(count + 2) + "humidity='" + humidity + "'," +
-        newLineWithTab(count + 2) + "visibility='" + visibility + "'," +
-        newLineWithTab(count + 2) + "pressure='" + pressure + "'," +
-        newLineWithTab(count + 2) + "cloudcover='" + cloudcover + "'," +
-        newLineWithTab(count + 2) + "feelsLikeC='" + feelsLikeC + "'," +
-        newLineWithTab(count + 2) + "feelsLikeF='" + feelsLikeF + "'," +
-        newLineWithTab(count + 1) + "}" + newLineWithTab(count-1);
-  }
 }
